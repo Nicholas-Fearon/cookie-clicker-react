@@ -9,10 +9,9 @@ const supabase = createClient(
 export default function Upgrades() {
   const [upgrades, setUpgrades] = useState([]);
   const [cookies, setCookies] = useState(0);
-
-  useEffect(() => {
-    getUpgrades();
-  }, []);
+  const [alert, setAlert] = useState("");
+  const [show, setShow] = useState(true);
+  const [perSec, setPerSec] = useState(0);
 
   async function getUpgrades() {
     const { data } = await supabase.from("upgrades").select();
@@ -20,15 +19,36 @@ export default function Upgrades() {
     console.log(data);
   }
 
+  useEffect(() => {
+    getUpgrades();
+  }, []);
+
+  useEffect(() => {
+    console.log("Timer working");
+    const interval = setInterval(() => {
+      setCookies((current) => current + 1);
+    }, 1000);
+
+    return () => {
+      console.log("useEffect cleanup");
+      clearInterval(interval);
+    };
+  }, []);
+
   function handleUpgrades(upgrade) {
     console.log("Handle grades");
     console.log(cookies);
-
-    setCookies(cookies - upgrade.cost);
+    if (cookies >= upgrade.cost) {
+      setCookies(cookies - upgrade.cost);
+    } else {
+      console.log("Not enough cookies");
+      setAlert("Not enough cookies");
+    }
   }
 
   return (
     <>
+      <p>{alert}</p>
       <p>Cookie count = {cookies}</p>
       <p>Cookies per sec = </p>
 
