@@ -14,6 +14,7 @@ function App() {
   const [upgrades, setUpgrades] = useState([]);
   const [cookies, setCookies] = useState(0);
   const [alert, setAlert] = useState("");
+  const [cps, setCps] = useState(1);
 
   async function getUpgrades() {
     const { data } = await supabase.from("upgrades").select();
@@ -28,20 +29,21 @@ function App() {
   useEffect(() => {
     console.log("Timer working");
     const interval = setInterval(() => {
-      setCookies((current) => current + 1);
+      setCookies((current) => current + cps);
     }, 1000);
 
     return () => {
       console.log("useEffect cleanup");
       clearInterval(interval);
     };
-  }, []);
+  }, [cps]);
 
   function handleUpgrades(upgrade) {
     console.log("Handle grades");
     console.log(cookies);
     if (cookies >= upgrade.cost) {
       setCookies(cookies - upgrade.cost);
+      setCps(cps + upgrade.extra);
     } else {
       setAlert("Not enough cookies");
     }
@@ -50,7 +52,7 @@ function App() {
   return (
     <>
       <Header />
-      <CookieCounter cookies={cookies} alert={alert} />
+      <CookieCounter cookies={cookies} alert={alert} cps={cps} />
       <CookieButton setCookies={setCookies} />
       {upgrades.map((upgrade) => (
         <UpgradeButton

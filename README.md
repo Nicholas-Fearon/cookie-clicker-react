@@ -36,3 +36,9 @@ Requesting feedback about a specific part of your submission.
 What useful external sources helped you complete the assignment (e.g YouTube tutorials)?
 What errors or bugs did you encounter while completing your assignment? How did you solve them?
 What went really well and what could have gone better?
+
+
+
+created my own data base with supabase using SQL. 
+disabled buttons until there is sufficiant cookies.
+automatic cookie collector. 
