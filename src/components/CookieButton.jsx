@@ -6,7 +6,7 @@ export default function CookieButton({ setCookies }) {
   return (
     <img
       className="cookie-btn"
-      src="src/assets/sounds/img/cookie.png"
+      src="../src/assets/sounds/img/cookie.png"
       alt="cookie picture"
       onClick={() => {
         setCookies((cookies) => cookies + 1);
