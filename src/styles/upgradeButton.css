@@ -1,0 +1,16 @@
+button {
+    height: auto;
+    width: auto;
+    margin: 5px;
+    padding: 8px;
+    background-color: white;
+    border-radius: 20px;
+    border: solid 1px lightgray;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: black;
+    border: solid 1px white;
+    color: white;
+  }

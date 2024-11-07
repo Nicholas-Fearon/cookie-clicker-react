@@ -1,41 +1,15 @@
-User Stories
-🐿️ As a developer, I want the application to use the useState hook so that the user’s interactions with the app are smooth and their data is managed effectively.
-🐿️ As a developer, I want to use the useEffect hook to manage game time with setInterval, return a cleanup function, and use a dependency array so that the game runs efficiently and updates in real-time for the user.
-🐿️ As a developer, I want to create separate files that return JSX instead of including all JSX within App.jsx so that the code is well-organized, making the app more maintainable and reliable for the user.
-🐿️ As a user, I want the application to automatically update the game state every second so that I can see my progress and earned cookies in real-time, making the game more exciting and rewarding.
-🐿️ As a developer, I want to use the .map() function to render lists of items efficiently so that the user can see dynamic content without performance issues.
-🐿️ As a user, I want to purchase upgrades with my earned cookies to increase my cookies per second, making the gameplay more rewarding.
-Requirements
-🎯 Implement the useState hook.
-🎯 Use useEffect effectively.
-🎯 Return JSX from a source other than App.jsx, for example, by using components.
-🎯 Apply setInterval to execute periodic tasks within the application.
-🎯 Use the .map() function to render lists of items in the application dynamically.
-🎯 Use logic to manage the purchase and application of upgrade items within the game.
+Reflecting on the project, I’m particularly pleased with how the app aligns with both the core requirements and the stretch goals, as well as the development practices used to achieve them. This experience has significantly strengthened my React development skills, particularly with using useState and useEffect for responsive state management and real-time updates in the game.
 
-Stretch User Stories
-🐿️ As a user, I want the application to save and retrieve my game data so that my progress is preserved even when I close and reopen the game.
-🐿️ As a developer, I want the application to use an API to retrieve upgrade information so that users can access current upgrade details and seamlessly integrate them into their gameplay.
-🐿️ As a user, I want the application to have excellent UI styling so that it is visually appealing and provides a pleasant and intuitive experience while playing the game.
-Stretch Requirements
-🏹 Use local storage to save and retrieve game data.
-🏹 Use the Upgrades API to manage upgrades.
-🏹 Style the application excellently.
-Reflection
-Please also provide an assignment reflection in your project README.md file.
+Implementing useState and useEffect allowed the app to handle user interactions smoothly, manage cookies per second (cps), and keep the game updated in real-time. By setting up setInterval in useEffect, cookies automatically increase every second, offering users the satisfaction of watching their progress unfold continuously. Including a cleanup function in useEffect helped manage memory efficiently, preventing unnecessary intervals from stacking up.
 
-Required
-🎯 What requirements did you achieve?
-🎯 Were there any requirements or goals that you were unable to achieve?
-🎯 If so, what was it that you found difficult about these tasks?
-Optional
-🏹 Feel free to add any other reflections you would like to share about your submission, for example:
+For project organisation, creating separate component files helped to keep the code modular and manageable. By moving JSX into components such as Header, CookieCounter, CookieButton, UpgradeButton, and ResetButton, I ensured that each part of the app was logically separated, which made the code more maintainable and easier to read. Additionally, using .map() to render upgrade items meant I could add or modify upgrades in the database without needing to adjust the rendering logic, keeping the app both dynamic and efficient.
 
-Requesting feedback about a specific part of your submission.
-What useful external sources helped you complete the assignment (e.g YouTube tutorials)?
-What errors or bugs did you encounter while completing your assignment? How did you solve them?
-What went really well and what could have gone better?
+To manage upgrades, I added logic that disables upgrade buttons when the user has insufficient cookies, providing clear feedback on what’s achievable within the game. I also integrated an API with Supabase to fetch upgrade information and used SQL to structure the database, which was both a rewarding challenge and a practical solution. Supabase made it easy to retrieve upgrade data and allowed me to centralise this part of the app’s logic in the backend.
 
-created my own data base with supabase using SQL.
-disabled buttons until there is sufficiant cookies.
-automatic cookie collector.
+To ensure user progress was preserved, I used local storage to save and retrieve game state, meaning cookies and cps were saved between sessions. The addition of a Reset button lets users restart the game and reset all stored data, improving replayability and meeting a key stretch goal of providing a consistent game experience across multiple sessions.
+
+One of the enhancements I’m particularly proud of is the addition of sounds for the upgrade and reset buttons. This small but impactful feature adds to the user experience, giving immediate auditory feedback when users interact with these buttons. It helps make the app feel more engaging and immersive, providing a richer, more dynamic interaction.
+
+While basic UI styling was applied, I recognise there is still potential to enhance the visual design further. More advanced styling could improve the game’s overall appeal and make it more intuitive, and this is an area I plan to revisit to deliver the best possible user experience.
+
+In summary, this project has been an insightful journey through state management, real-time updates, componentisation, data persistence, backend integration, and user experience enhancements such as sound feedback. Meeting the core and stretch requirements has created a strong foundation for future improvements and additional features.

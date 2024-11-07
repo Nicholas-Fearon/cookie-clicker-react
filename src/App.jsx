@@ -13,23 +13,33 @@ const supabase = createClient(
 
 function App() {
   const [upgrades, setUpgrades] = useState([]);
-
+  const [alert, setAlert] = useState("");
   const [cookies, setCookies] = useState(() => {
     const savedCookies = localStorage.getItem("cookies");
     return savedCookies ? JSON.parse(savedCookies) : 0;
-  }); //localStorage.getItem('cookies')) || 0;
+  });
 
   const [cps, setCps] = useState(() => {
     const savedCps = localStorage.getItem("cps");
-    return savedCps ? JSON.parse(savedCps) : 1;
-  }); //localStorage.getItem('cps')) || 1;
-
-  const [alert, setAlert] = useState("");
+    return savedCps ? JSON.parse(savedCps) : 0;
+  });
 
   async function getUpgrades() {
     const { data } = await supabase.from("upgrades").select();
     setUpgrades(data);
     console.log(data);
+  }
+
+  function upGradeSound() {
+    const upgradeSnd = new Audio("../src/assets/sounds/new purchase.mp3");
+    upgradeSnd.play();
+  }
+
+  function resetSound() {
+    const resetSnd = new Audio(
+      "../src/assets/sounds/turning-down-power-48657.mp3"
+    );
+    resetSnd.play();
   }
 
   useEffect(() => {
@@ -63,6 +73,7 @@ function App() {
     if (cookies >= upgrade.cost) {
       setCookies(cookies - upgrade.cost);
       setCps(cps + upgrade.extra);
+      upGradeSound();
     } else {
       setAlert("Not enough cookies");
     }
@@ -73,11 +84,12 @@ function App() {
     setCps(0);
     localStorage.setItem("cookies", JSON.stringify(0));
     localStorage.setItem("cps", JSON.stringify(0));
+    resetSound();
   }
 
   return (
-    <>
-      <Header />
+    <div className="container">
+      <Header  />
       <CookieCounter cookies={cookies} alert={alert} cps={cps} />
       <CookieButton setCookies={setCookies} />
       {upgrades.map((upgrade) => (
@@ -89,7 +101,7 @@ function App() {
         />
       ))}
       <ResetButton handleReset={handleReset} />
-    </>
+    </div>
   );
 }
 

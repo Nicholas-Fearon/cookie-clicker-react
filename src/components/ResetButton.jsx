@@ -1,3 +1,3 @@
 export default function ResetButton({handleReset}) {
-  return <button onClick={handleReset}>Reset</button>;
+  return <button className="reset" onClick={handleReset}>Reset</button>;
 }

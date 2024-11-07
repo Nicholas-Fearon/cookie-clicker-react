@@ -1,0 +1,11 @@
+.cookie-btn {
+  height: 150px;
+  width: 150px;
+  border-radius: 50px;
+}
+
+.cookie-btn:active {
+  transform:scale(0.9);
+  
+}
+
