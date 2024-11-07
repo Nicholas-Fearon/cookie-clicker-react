@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import CookieCounter from "./components/CookieCounter";
 import CookieButton from "./components/CookieButton";
 import UpgradeButton from "./components/UpgradeButton";
+import ResetButton from "./components/ResetButton";
 
 const supabase = createClient(
   "https://znbnodscuqgrehrjiojy.supabase.co",
@@ -12,9 +13,18 @@ const supabase = createClient(
 
 function App() {
   const [upgrades, setUpgrades] = useState([]);
-  const [cookies, setCookies] = useState(0);
+
+  const [cookies, setCookies] = useState(() => {
+    const savedCookies = localStorage.getItem("cookies");
+    return savedCookies ? JSON.parse(savedCookies) : 0;
+  }); //localStorage.getItem('cookies')) || 0;
+
+  const [cps, setCps] = useState(() => {
+    const savedCps = localStorage.getItem("cps");
+    return savedCps ? JSON.parse(savedCps) : 1;
+  }); //localStorage.getItem('cps')) || 1;
+
   const [alert, setAlert] = useState("");
-  const [cps, setCps] = useState(1);
 
   async function getUpgrades() {
     const { data } = await supabase.from("upgrades").select();
@@ -38,6 +48,15 @@ function App() {
     };
   }, [cps]);
 
+  // Save `cookies` and `cps` to local storage whenever they change
+  useEffect(() => {
+    localStorage.setItem("cookies", JSON.stringify(cookies));
+  }, [cookies]);
+
+  useEffect(() => {
+    localStorage.setItem("cps", JSON.stringify(cps));
+  }, [cps]);
+
   function handleUpgrades(upgrade) {
     console.log("Handle grades");
     console.log(cookies);
@@ -47,6 +66,13 @@ function App() {
     } else {
       setAlert("Not enough cookies");
     }
+  }
+
+  function handleReset() {
+    setCookies(0);
+    setCps(0);
+    localStorage.setItem("cookies", JSON.stringify(0));
+    localStorage.setItem("cps", JSON.stringify(0));
   }
 
   return (
@@ -62,6 +88,7 @@ function App() {
           handleUpgrades={handleUpgrades}
         />
       ))}
+      <ResetButton handleReset={handleReset} />
     </>
   );
 }

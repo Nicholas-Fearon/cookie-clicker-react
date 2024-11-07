@@ -13,7 +13,6 @@ Requirements
 🎯 Use the .map() function to render lists of items in the application dynamically.
 🎯 Use logic to manage the purchase and application of upgrade items within the game.
 
-
 Stretch User Stories
 🐿️ As a user, I want the application to save and retrieve my game data so that my progress is preserved even when I close and reopen the game.
 🐿️ As a developer, I want the application to use an API to retrieve upgrade information so that users can access current upgrade details and seamlessly integrate them into their gameplay.
@@ -37,8 +36,6 @@ What useful external sources helped you complete the assignment (e.g YouTube tut
 What errors or bugs did you encounter while completing your assignment? How did you solve them?
 What went really well and what could have gone better?
 
-
-
-created my own data base with supabase using SQL. 
+created my own data base with supabase using SQL.
 disabled buttons until there is sufficiant cookies.
-automatic cookie collector. 
+automatic cookie collector.
