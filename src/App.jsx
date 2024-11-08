@@ -31,14 +31,12 @@ function App() {
   }
 
   function upGradeSound() {
-    const upgradeSnd = new Audio("../src/assets/sounds/new purchase.mp3");
+    const upgradeSnd = new Audio("/sounds/new purchase.mp3");
     upgradeSnd.play();
   }
 
   function resetSound() {
-    const resetSnd = new Audio(
-      "../src/assets/sounds/turning-down-power-48657.mp3"
-    );
+    const resetSnd = new Audio("/sounds/turning-down-power-48657.mp3");
     resetSnd.play();
   }
 
@@ -89,7 +87,7 @@ function App() {
 
   return (
     <div className="container">
-      <Header  />
+      <Header />
       <CookieCounter cookies={cookies} alert={alert} cps={cps} />
       <CookieButton setCookies={setCookies} />
       {upgrades.map((upgrade) => (
