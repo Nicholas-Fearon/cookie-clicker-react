@@ -1,15 +1,47 @@
-Reflecting on the project, I’m particularly pleased with how the app aligns with both the core requirements and the stretch goals, as well as the development practices used to achieve them. This experience has significantly strengthened my React development skills, particularly with using useState and useEffect for responsive state management and real-time updates in the game.
+Cookie Clicker Game Project
 
-Implementing useState and useEffect allowed the app to handle user interactions smoothly, manage cookies per second (cps), and keep the game updated in real-time. By setting up setInterval in useEffect, cookies automatically increase every second, offering users the satisfaction of watching their progress unfold continuously. Including a cleanup function in useEffect helped manage memory efficiently, preventing unnecessary intervals from stacking up.
+This project is a React-based interactive game inspired by the popular “cookie clicker” style of gameplay. The app not only meets the core requirements but also includes several advanced features that enhance the user experience and game functionality. Reflecting on this project, I’m particularly pleased with how it aligns with both the core requirements and stretch goals, as well as the development practices used to achieve them. This project has been instrumental in strengthening my React development skills, particularly in using useState and useEffect for responsive state management and real-time updates.
 
-For project organisation, creating separate component files helped to keep the code modular and manageable. By moving JSX into components such as Header, CookieCounter, CookieButton, UpgradeButton, and ResetButton, I ensured that each part of the app was logically separated, which made the code more maintainable and easier to read. Additionally, using .map() to render upgrade items meant I could add or modify upgrades in the database without needing to adjust the rendering logic, keeping the app both dynamic and efficient.
+Features
 
-To manage upgrades, I added logic that disables upgrade buttons when the user has insufficient cookies, providing clear feedback on what’s achievable within the game. I also integrated an API with Supabase to fetch upgrade information and used SQL to structure the database, which was both a rewarding challenge and a practical solution. Supabase made it easy to retrieve upgrade data and allowed me to centralise this part of the app’s logic in the backend.
+Real-Time State Management
 
-To ensure user progress was preserved, I used local storage to save and retrieve game state, meaning cookies and cps were saved between sessions. The addition of a Reset button lets users restart the game and reset all stored data, improving replayability and meeting a key stretch goal of providing a consistent game experience across multiple sessions.
+    •	useState & useEffect: The app uses useState and useEffect hooks extensively to handle user interactions, manage cookies per second (CPS), and provide real-time updates within the game.
+    •	Auto-Cookie Increment: A setInterval function within useEffect ensures that cookies increase automatically every second, offering users a continuous sense of progress.
+    •	Memory Management: Cleanup functions in useEffect help prevent unnecessary memory usage by clearing intervals when they are no longer needed.
 
-One of the enhancements I’m particularly proud of is the addition of sounds for the upgrade and reset buttons. This small but impactful feature adds to the user experience, giving immediate auditory feedback when users interact with these buttons. It helps make the app feel more engaging and immersive, providing a richer, more dynamic interaction.
+Modular Component Structure
 
-While basic UI styling was applied, I recognise there is still potential to enhance the visual design further. More advanced styling could improve the game’s overall appeal and make it more intuitive, and this is an area I plan to revisit to deliver the best possible user experience.
+    •	Component Files: The app is organised into separate components, including Header, CookieCounter, CookieButton, UpgradeButton, ResetButton, and MutedButton, which keeps the code modular, maintainable, and easy to understand.
+    •	Dynamic Rendering: The use of .map() to render upgrade items allows for easy modification of upgrades without requiring changes to the rendering logic, making the app more dynamic and flexible.
 
-In summary, this project has been an insightful journey through state management, real-time updates, componentisation, data persistence, backend integration, and user experience enhancements such as sound feedback. Meeting the core and stretch requirements has created a strong foundation for future improvements and additional features.
+Upgrade System
+
+    •	Button Interactivity: The app disables upgrade buttons when the user has insufficient cookies, providing clear feedback on achievable actions.
+    •	Backend Integration with Supabase: Supabase is used to fetch upgrade information, with SQL structuring the database. This integration centralises the logic for upgrades, creating a streamlined backend solution.
+
+Data Persistence
+
+    •	Local Storage: The app uses local storage to save the game state, so cookies and CPS are preserved between sessions.
+    •	Reset Functionality: A reset button allows users to restart the game and clear all stored data, adding replayability.
+
+User Experience Enhancements
+
+    •	Audio Feedback: Sound effects for the upgrade, cookie click, and reset actions provide immediate auditory feedback, adding a layer of interactivity and immersion. Audio files are organised in a sounds folder within the public directory.
+    •	Mute Button: A mute button, implemented as the MutedButton component, allows users to toggle audio on and off, enhancing accessibility and catering to different user preferences.
+
+File Organisation
+
+    •	Public Folder Structure: The app’s images and audio files are separated into distinct folders (images and sounds) within the public directory, keeping assets organised and easy to manage.
+
+UI & Styling
+
+    •	Basic Styling: While the app includes basic styling, there is room for further UI improvements to increase visual appeal. Future design enhancements could make the app more intuitive and engaging.
+
+Areas for Improvement
+
+    •	Comma Formatting for Numbers: An area of improvement is adding commas to the cookie count and CPS displays. After researching solutions, I found that Redux would be a suitable tool for implementing this enhancement, though I currently lack experience with Redux. Learning Redux to achieve this formatting is a future goal for improving the project’s readability and user experience.
+
+Summary
+
+This project has been a valuable learning experience across various development practices, from state management and real-time updates to componentisation and backend integration. Meeting the core and stretch goals has laid a strong foundation for future improvements and additional features. This project has strengthened my React skills and inspired ideas for further enhancements, including improved UI design, number formatting, and a more refined user experience.

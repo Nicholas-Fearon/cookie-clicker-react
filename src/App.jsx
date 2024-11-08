@@ -5,6 +5,7 @@ import CookieCounter from "./components/CookieCounter";
 import CookieButton from "./components/CookieButton";
 import UpgradeButton from "./components/UpgradeButton";
 import ResetButton from "./components/ResetButton";
+import MuteButton from "./components/MuteButton";
 
 const supabase = createClient(
   "https://znbnodscuqgrehrjiojy.supabase.co",
@@ -14,6 +15,7 @@ const supabase = createClient(
 function App() {
   const [upgrades, setUpgrades] = useState([]);
   const [alert, setAlert] = useState("");
+  const [muted, setMuted] = useState(false);
   const [cookies, setCookies] = useState(() => {
     const savedCookies = localStorage.getItem("cookies");
     return savedCookies ? JSON.parse(savedCookies) : 0;
@@ -31,13 +33,17 @@ function App() {
   }
 
   function upGradeSound() {
-    const upgradeSnd = new Audio("/sounds/new purchase.mp3");
-    upgradeSnd.play();
+    if (!muted) {
+      const upgradeSnd = new Audio("/sounds/new purchase.mp3");
+      upgradeSnd.play();
+    }
   }
 
   function resetSound() {
-    const resetSnd = new Audio("/sounds/turning-down-power-48657.mp3");
-    resetSnd.play();
+    if (!muted) {
+      const resetSnd = new Audio("/sounds/turning-down-power-48657.mp3");
+      resetSnd.play();
+    }
   }
 
   useEffect(() => {
@@ -85,6 +91,10 @@ function App() {
     resetSound();
   }
 
+  function toggleMute() {
+    setMuted((prevMuted) => !prevMuted);
+  }
+
   return (
     <div className="container">
       <Header />
@@ -98,7 +108,9 @@ function App() {
           handleUpgrades={handleUpgrades}
         />
       ))}
+
       <ResetButton handleReset={handleReset} />
+      <MuteButton toggleMute={toggleMute} />
     </div>
   );
 }
