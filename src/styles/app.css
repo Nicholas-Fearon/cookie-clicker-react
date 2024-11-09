@@ -24,7 +24,7 @@ body {
 
 @media (max-width: 480px) {
   body {
-    background-image: url("/public/images/chocolate-chip-cookies-6952422_1280.jpg");
+    background-image: url("/images/chocolate-chip-cookies-6952422_1280.jpg");
   }
   .cookieCounter {
     color: black;

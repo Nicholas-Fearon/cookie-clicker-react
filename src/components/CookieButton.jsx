@@ -1,9 +1,11 @@
 import "../styles/cookieButton.css";
 
-export default function CookieButton({ setCookies }) {
+export default function CookieButton({ setCookies, muted}) {
   function cookieSound() {
-    const cookieSnd = new Audio("/sounds/mouse-click.mp3");
-    cookieSnd.play();
+    if (!muted) {
+      const cookieSnd = new Audio("/sounds/mouse-click.mp3");
+      cookieSnd.play();
+    }
   }
   return (
     <img

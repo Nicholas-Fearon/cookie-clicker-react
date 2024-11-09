@@ -77,7 +77,7 @@ function App() {
       setCps(cps + upgrade.extra);
       upGradeSound();
     } else {
-      setAlert("Not enough cookies");
+      console.log("not enough upgrades");
     }
   }
 
@@ -97,7 +97,7 @@ function App() {
     <div className="appContainer">
       <Header />
       <CookieCounter cookies={cookies} cps={cps} />
-      <CookieButton setCookies={setCookies} />
+      <CookieButton setCookies={setCookies} muted={muted} />
       {upgrades.map((upgrade) => (
         <UpgradeButton
           key={upgrade.upgrade}
@@ -108,7 +108,7 @@ function App() {
       ))}
 
       <ResetButton handleReset={handleReset} />
-      <MuteButton toggleMute={toggleMute} />
+      <MuteButton toggleMute={toggleMute} muted={muted} />
     </div>
   );
 }

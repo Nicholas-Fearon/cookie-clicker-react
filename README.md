@@ -27,8 +27,9 @@ Data Persistence
 
 User Experience Enhancements
 
-    •	Audio Feedback: Sound effects for the upgrade, cookie click, and reset actions provide immediate auditory feedback, adding a layer of interactivity and immersion. Audio files are organised in a sounds folder within the public directory.
-    •	Mute Button: A mute button, implemented as the MutedButton component, allows users to toggle audio on and off, enhancing accessibility and catering to different user preferences.
+    •	Audio Feedback: Sound effects play when the user buys an upgrade, clicks the cookie, and resets the game, providing immediate auditory feedback that enhances immersion. Audio files are organised in a sounds folder within the public directory.
+    •	Mute Button with Context Change: The mute button, implemented as the MutedButton component, allows users to toggle audio on and off. When pressed, the button’s context changes to reflect the current audio state, providing a more intuitive experience.
+    •	Media Query for Responsive Background Image: A media query changes the background image to a horizontal version when the screen width is 480px or below, ensuring that the game remains visually appealing and adapted to smaller screens.
 
 File Organisation
 
