@@ -1,3 +1,5 @@
+import "../styles/cookieButton.css";
+
 export default function CookieButton({ setCookies }) {
   function cookieSound() {
     const cookieSnd = new Audio("/sounds/mouse-click.mp3");

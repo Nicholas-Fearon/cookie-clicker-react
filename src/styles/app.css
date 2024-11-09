@@ -1,4 +1,4 @@
-.container {
+body {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -6,11 +6,41 @@
   box-sizing: border-box;
   font-family: "Courier New", Courier, monospace;
   position: relative;
+  height: 100vh;
+  background-image: url("/public/images/chocolate-chip-cookies-6952422_1280.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-@media (min-width: 480px) {
-  .container {
-    flex-direction: row;
-    flex-wrap: wrap;
+.appContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  body {
+    background-image: url("/public/images/chocolate-chip-cookies-6952422_1280.jpg");
+  }
+  .cookieCounter {
+    color: black;
+    background-color: bisque;
+    border-radius: 15px;
+    padding: 5px;
+  }
+  
+
+  .header {
+    color: white;
+  }
+}
+
+@media (min-width: 481px) {
+  body {
+    background-image: url("/public/images/chocolate-2599637_1280.jpg");
   }
 }

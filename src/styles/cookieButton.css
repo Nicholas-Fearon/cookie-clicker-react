@@ -1,11 +1,14 @@
 .cookie-btn {
-  height: 150px;
-  width: 150px;
-  border-radius: 50px;
+  background-color: white;
+  border-radius: 100px;
+  background-color:transparent;
+  margin-bottom: 20px;
+  width: 200px;
+  height: 200px;
 }
 
 .cookie-btn:active {
-  transform:scale(0.9);
-  
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);
 }
 

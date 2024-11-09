@@ -1,4 +1,10 @@
-button {
+.upgradeButtonContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.upgradeButton {
     height: auto;
     width: auto;
     margin: 5px;
@@ -9,7 +15,7 @@ button {
     margin-top: 10px;
   }
   
-  button:hover {
+  .upgradeButton:hover {
     background-color: black;
     border: solid 1px white;
     color: white;

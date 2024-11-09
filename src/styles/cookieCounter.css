@@ -1,5 +1,8 @@
 .cookieCounter {
-    font-size: larger;
-    font-weight: bold;
-  }
-  
+  font-size: larger;
+  font-weight: bold;
+  color: black;
+    background-color: bisque;
+    border-radius: 15px;
+    padding: 5px;
+}

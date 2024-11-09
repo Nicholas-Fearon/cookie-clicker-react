@@ -6,7 +6,6 @@ import CookieButton from "./components/CookieButton";
 import UpgradeButton from "./components/UpgradeButton";
 import ResetButton from "./components/ResetButton";
 import MuteButton from "./components/MuteButton";
-
 const supabase = createClient(
   "https://znbnodscuqgrehrjiojy.supabase.co",
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpuYm5vZHNjdXFncmVocmppb2p5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk2NzAxNzQsImV4cCI6MjA0NTI0NjE3NH0.qfVU54KAsDRZLrZK9oZ4YNlExGdsRYWBUmOCbD3SIWU"
@@ -14,7 +13,6 @@ const supabase = createClient(
 
 function App() {
   const [upgrades, setUpgrades] = useState([]);
-  const [alert, setAlert] = useState("");
   const [muted, setMuted] = useState(false);
   const [cookies, setCookies] = useState(() => {
     const savedCookies = localStorage.getItem("cookies");
@@ -96,9 +94,9 @@ function App() {
   }
 
   return (
-    <div className="container">
+    <div className="appContainer">
       <Header />
-      <CookieCounter cookies={cookies} alert={alert} cps={cps} />
+      <CookieCounter cookies={cookies} cps={cps} />
       <CookieButton setCookies={setCookies} />
       {upgrades.map((upgrade) => (
         <UpgradeButton

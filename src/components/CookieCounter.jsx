@@ -1,9 +1,9 @@
-export default function CookieCounter({ cookies, alert, cps }) {
+import "../styles/cookieCounter.css";
+export default function CookieCounter({ cookies, cps }) {
   return (
-    <div>
-      <p className="cookieCounter">{alert}</p>
+    <>
       <p className="cookieCounter">Cookie count = {cookies}</p>
       <p className="cookieCounter">Cookies per sec = {cps}</p>
-    </div>
+    </>
   );
 }
